@@ -2,8 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using UnityEngine.Windows.Speech;
 
 public class Snake : MonoBehaviour {
+
+    private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
+    private KeywordRecognizer keywordRecognizer;
+
+
 	// Did the snake eat something?
 	bool ate = false;
 
@@ -23,11 +30,49 @@ public class Snake : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Move the Snake every 300ms
-		InvokeRepeating("Move", 0.3f, 0.3f); 
-	}
+		InvokeRepeating("Move", 0.3f, 0.3f);
 
-	// Update is called once per frame
-	void Update () {
+        keywordActions.Add("right", turnRight);
+        keywordActions.Add("left", turnLeft);
+        keywordActions.Add("up", turnUp);
+        keywordActions.Add("down", turnDown);
+
+        keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
+        keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
+        keywordRecognizer.Start();
+    }
+
+    private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
+    {
+        Debug.Log("Keyword: " + args.text);
+        keywordActions[args.text].Invoke();
+    }
+
+    /// <summary>
+    /// Moves
+    /// </summary>
+    private void turnDown()
+    {
+        if (!isDied) { dir = -Vector2.up; };
+    }
+
+    private void turnUp()
+    {
+        if (!isDied) { dir = Vector2.up; };
+    }
+
+    private void turnLeft()
+    {
+        if (!isDied) { dir = -Vector2.right; };
+    }
+
+    private void turnRight()
+    {
+        if (!isDied) { dir = Vector2.right; }
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if (!isDied) {
 			// Move in a new Direction?
 			if (Input.GetKey (KeyCode.RightArrow))
