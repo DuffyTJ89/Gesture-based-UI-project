@@ -10,12 +10,14 @@ public class Snake : MonoBehaviour {
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
 
+    
+
 
 	// Did the snake eat something?
 	bool ate = false;
 
 	//Did user died?
-	bool isDied = false;
+	bool isDead = false;
 
 	// Tail Prefab
 	public GameObject tailPrefab;
@@ -31,7 +33,17 @@ public class Snake : MonoBehaviour {
 	void Start () {
 		// Move the Snake every 300ms
 		InvokeRepeating("Move", 0.3f, 0.3f);
+        Check();
+    }
 
+    private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
+    {
+        Debug.Log("Keyword: " + args.text);
+        keywordActions[args.text].Invoke();
+    }
+
+    private void Check()
+    {
         keywordActions.Add("right", turnRight);
         keywordActions.Add("left", turnLeft);
         keywordActions.Add("up", turnUp);
@@ -42,48 +54,45 @@ public class Snake : MonoBehaviour {
         keywordRecognizer.Start();
     }
 
-    private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
-    {
-        Debug.Log("Keyword: " + args.text);
-        keywordActions[args.text].Invoke();
-    }
-
     /// <summary>
     /// Moves
     /// </summary>
     private void turnDown()
     {
-        if (!isDied) { dir = -Vector2.up; };
+        if (!isDead) { dir = -Vector2.up; };
     }
 
     private void turnUp()
     {
-        if (!isDied) { dir = Vector2.up; };
+        if (!isDead) { dir = Vector2.up; };
     }
 
     private void turnLeft()
     {
-        if (!isDied) { dir = -Vector2.right; };
+        if (!isDead) { dir = -Vector2.right; };
     }
 
     private void turnRight()
     {
-        if (!isDied) { dir = Vector2.right; }
+        if (!isDead) { dir = Vector2.right; }
     }
 
     // Update is called once per frame
     void Update () {
-		if (!isDied) {
+
+        Check();
+
+		//if (!isDead) {
 			// Move in a new Direction?
-			if (Input.GetKey (KeyCode.RightArrow))
+			//if (Input.GetKey (KeyCode.RightArrow))
 				dir = Vector2.right;
-			else if (Input.GetKey (KeyCode.DownArrow))
-				dir = -Vector2.up;    // '-up' means 'down'
-			else if (Input.GetKey (KeyCode.LeftArrow))
-				dir = -Vector2.right; // '-right' means 'left'
-			else if (Input.GetKey (KeyCode.UpArrow))
+			//else if (Input.GetKey (KeyCode.DownArrow))
+			//	dir = -Vector2.up;    // '-up' means 'down'
+			//else if (Input.GetKey (KeyCode.LeftArrow))
+				//dir = -Vector2.right; // '-right' means 'left'
+			//else if (Input.GetKey (KeyCode.UpArrow))
 				dir = Vector2.up;
-		} else {
+		//} else {
 			if (Input.GetKey(KeyCode.R)){
 				//clear the tail
 				tail.Clear();
@@ -92,13 +101,13 @@ public class Snake : MonoBehaviour {
 				transform.position = new Vector3(0, 0, 0);
 
 				//make snake alive
-				isDied = false;
+				isDead = false;
 			}
-		}
+		//}
 	}
 
 	void Move() {
-		if (!isDied) {
+		if (!isDead) {
 			// Save current position (gap will be here)
 			Vector2 v = transform.position;
 
@@ -137,7 +146,7 @@ public class Snake : MonoBehaviour {
 			// Remove the Food
 			Destroy(coll.gameObject);
 		} else { 	// Collided with Tail or Border
-			isDied = true;
+			isDead = true;
 		}
 	}
 }
