@@ -80,29 +80,29 @@ public class Snake : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        Check();
+       // Check();
 
 		//if (!isDead) {
 			// Move in a new Direction?
 			//if (Input.GetKey (KeyCode.RightArrow))
-				dir = Vector2.right;
+				//dir = Vector2.right;
 			//else if (Input.GetKey (KeyCode.DownArrow))
 			//	dir = -Vector2.up;    // '-up' means 'down'
 			//else if (Input.GetKey (KeyCode.LeftArrow))
 				//dir = -Vector2.right; // '-right' means 'left'
 			//else if (Input.GetKey (KeyCode.UpArrow))
-				dir = Vector2.up;
+			//	dir = Vector2.up;
 		//} else {
-			if (Input.GetKey(KeyCode.R)){
+			//if (Input.GetKey(KeyCode.R)){
 				//clear the tail
-				tail.Clear();
+				//tail.Clear();
 
 				//reset to origin
-				transform.position = new Vector3(0, 0, 0);
+				//transform.position = new Vector3(0, 0, 0);
 
 				//make snake alive
-				isDead = false;
-			}
+				//isDead = false;
+			//}
 		//}
 	}
 

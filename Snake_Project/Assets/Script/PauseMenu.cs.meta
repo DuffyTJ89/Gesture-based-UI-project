@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 6e9a48bc50dc29b459eb93c41176721e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pauseMenuCanvas: {fileID: 1529969532842786, guid: c97ff355e11f7814da99c46973d9c90c,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
