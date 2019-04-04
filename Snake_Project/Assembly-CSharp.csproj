@@ -61,8 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FoodScore.cs" />
+    <Compile Include="Assets\Script\FoodScore.cs" />
     <Compile Include="Assets\Script\MainMenu.cs" />
     <Compile Include="Assets\Script\PauseMenu.cs" />
+    <Compile Include="Assets\Script\ScoreManager.cs" />
     <Compile Include="Assets\Script\Snake.cs" />
     <Compile Include="Assets\Script\SpawnFood.cs" />
     <Reference Include="UnityEditor.StandardEvents">

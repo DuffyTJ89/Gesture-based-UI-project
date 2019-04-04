@@ -16,8 +16,10 @@ public class Snake : MonoBehaviour {
 	// Did the snake eat something?
 	bool ate = false;
 
-	//Did user died?
-	bool isDead = false;
+    public int pointsToAdd;
+
+    //Did user died?
+    bool isDead = false;
 
 	// Tail Prefab
 	public GameObject tailPrefab;
@@ -82,28 +84,18 @@ public class Snake : MonoBehaviour {
 
        // Check();
 
-		//if (!isDead) {
+		if (!isDead) {
 			// Move in a new Direction?
-			//if (Input.GetKey (KeyCode.RightArrow))
-				//dir = Vector2.right;
-			//else if (Input.GetKey (KeyCode.DownArrow))
-			//	dir = -Vector2.up;    // '-up' means 'down'
-			//else if (Input.GetKey (KeyCode.LeftArrow))
-				//dir = -Vector2.right; // '-right' means 'left'
-			//else if (Input.GetKey (KeyCode.UpArrow))
-			//	dir = Vector2.up;
-		//} else {
-			//if (Input.GetKey(KeyCode.R)){
-				//clear the tail
-				//tail.Clear();
-
-				//reset to origin
-				//transform.position = new Vector3(0, 0, 0);
-
-				//make snake alive
-				//isDead = false;
-			//}
-		//}
+			if (Input.GetKey (KeyCode.RightArrow))
+				dir = Vector2.right;
+			else if (Input.GetKey (KeyCode.DownArrow))
+				dir = -Vector2.up;    // '-up' means 'down'
+			else if (Input.GetKey (KeyCode.LeftArrow))
+				dir = -Vector2.right; // '-right' means 'left'
+			else if (Input.GetKey (KeyCode.UpArrow))
+				dir = Vector2.up;
+		
+		}
 	}
 
 	void Move() {
@@ -142,9 +134,9 @@ public class Snake : MonoBehaviour {
 		if (coll.name.StartsWith("Food")) {
 			// Get longer in next Move call
 			ate = true;
-
-			// Remove the Food
-			Destroy(coll.gameObject);
+            ScoreManager.AddPoints(pointsToAdd);
+            // Remove the Food
+            Destroy(coll.gameObject);
 		} else { 	// Collided with Tail or Border
 			isDead = true;
 		}

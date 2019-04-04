@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 9873af2ca85ad84498dc69959056cc84
-timeCreated: 1470672034
-licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - foodPrefab: {fileID: 173352, guid: aa76f3b15f8ce404b92ce09b120f8ee9, type: 2}
+  - borderTop: {instanceID: 0}
+  - borderBottom: {instanceID: 0}
+  - borderLeft: {instanceID: 0}
+  - borderRight: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

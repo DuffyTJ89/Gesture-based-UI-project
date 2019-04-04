@@ -639,13 +639,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1529969532842786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7fd0a09685467b4ea84de1d3bcdb735, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e9a48bc50dc29b459eb93c41176721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectLevel: LevelSelector
-  selectMainMenu: mainmenu
+  selectMainMenu: MainMenu
   isPaused: 0
-  pauseMenuCanvas: {fileID: 1064350050480020}
+  pauseMenuCanvas: {fileID: 1518528105444910, guid: 7db795b190036724ea8a9a93b8cccd00,
+    type: 2}
 --- !u!222 &222077218321336272
 CanvasRenderer:
   m_ObjectHideFlags: 1
