@@ -54,7 +54,7 @@ The snake itself is just a white square, the food is a blue square. When the sna
 			}
 ```
 
-When we add to the snake we also need to delete the food
+##### When we add to the snake we also need to delete the food
 ```
 if (coll.name.StartsWith("Food")) {
 			// Get longer in next Move call
@@ -66,7 +66,7 @@ if (coll.name.StartsWith("Food")) {
 			isDead = true;
 		}
 ```
-ScoreManager is used to keep track of the player's points in game.
+##### ScoreManager is used to keep track of the player's points in game.
 
 To add voice commands we used unity's built in voice recognition.
 To add it to the project we go to file -> build settings -> PC, Mac & Linux -> player settings -> windows -> capabilities and tick the microphone checkbox.
@@ -74,19 +74,19 @@ Then in our code
 ```
 using UnityEngine.Windows.Speech;
 ```
-We set  up the keywordActions variable so we can call a method later when the system hear a certain word.
+##### We set  up the keywordActions variable so we can call a method later when the system hear a certain word.
 ```
 private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
 private KeywordRecognizer keywordRecognizer;
 ``` 
-We then map the keywords to call a method when it recognizes a word
+##### We then map the keywords to call a method when it recognizes a word
 ``` 
 keywordActions.Add("right", turnRight);
 keywordActions.Add("left", turnLeft);
 keywordActions.Add("up", turnUp);
 keywordActions.Add("down", turnDown);
 ``` 
-These method will change the direction of the snake 
+##### These method will change the direction of the snake 
 ```
  private void turnDown()
     {
@@ -108,7 +108,7 @@ These method will change the direction of the snake
         if (!isDead) { dir = Vector2.right; }
     }
 ```
-We check if the player is dead first because you don't want them to be able to turn after they have collided with the wall or the snake tail.
+##### We check if the player is dead first because you don't want them to be able to turn after they have collided with the wall or the snake tail.
 
 ### Authors: 
 Kieran O'Halloran,
