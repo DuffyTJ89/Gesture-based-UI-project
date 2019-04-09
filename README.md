@@ -1,6 +1,6 @@
 # Voice controlled Snake
 
-The aim of this project was to develop an application with a Natural User Interface. We chose to implement Myo armband controles on the classsic mobile game Snake.
+The aim of this project was to develop an application with a Natural User Interface. We chose to implement voice commands on the classsic mobile game Snake.
 
 # Technologies used
   - Unity
