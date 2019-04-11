@@ -12,6 +12,14 @@ public class MainMenu : MonoBehaviour
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
 
+    // Use this for initialization
+    void Start()
+    {
+     
+       
+        Check();
+    }
+
     public string Level1;
     // public string scores;
 
@@ -23,7 +31,7 @@ public class MainMenu : MonoBehaviour
 
     private void Check()
     {
-        keywordActions.Add("start", NewGame);
+        keywordActions.Add("new game", NewGame);
         keywordActions.Add("scores", Scores);
         keywordActions.Add("exit", ExitGame);
         
