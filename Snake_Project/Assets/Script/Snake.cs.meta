@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: e23263347b10fc34db587b3412a8f2c4
-timeCreated: 1470673068
-licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tokenSoundEffect: {instanceID: 0}
+  - tailPrefab: {instanceID: 0}
+  - DeadCanvas: {fileID: 1705565397987304, guid: c37d6ff7c187c3d4792a9dec4aed028b,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

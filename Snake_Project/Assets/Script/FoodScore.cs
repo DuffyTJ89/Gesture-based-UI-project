@@ -6,7 +6,13 @@ public class FoodScore : MonoBehaviour
 {
 
     public int pointsToAdd;
-   
+    public AudioSource tokenSoundEffect;
+
+    public void Start()
+    {
+        tokenSoundEffect = GetComponent<AudioSource>();
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,9 +21,9 @@ public class FoodScore : MonoBehaviour
             return;
 
         ScoreManager.AddPoints(pointsToAdd);
-       
+        tokenSoundEffect.Play();
         // remove token object
-       // Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
 }

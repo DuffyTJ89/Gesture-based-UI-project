@@ -9,12 +9,12 @@ public class Snake : MonoBehaviour {
 
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
+    public AudioSource tokenSoundEffect;
 
-    
 
 
-	// Did the snake eat something?
-	bool ate = false;
+    // Did the snake eat something?
+    bool ate = false;
 
     public int pointsToAdd;
 
@@ -36,6 +36,7 @@ public class Snake : MonoBehaviour {
 		// Move the Snake every 300ms
 		InvokeRepeating("Move", 0.3f, 0.3f);
         Check();
+        tokenSoundEffect = GetComponent<AudioSource>();
     }
 
     private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
@@ -135,9 +136,11 @@ public class Snake : MonoBehaviour {
 			// Get longer in next Move call
 			ate = true;
             ScoreManager.AddPoints(pointsToAdd);
+            
             // Remove the Food
             Destroy(coll.gameObject);
-		} else { 	// Collided with Tail or Border
+            tokenSoundEffect.Play();
+        } else { 	// Collided with Tail or Border
 			isDead = true;
 		}
 	}
