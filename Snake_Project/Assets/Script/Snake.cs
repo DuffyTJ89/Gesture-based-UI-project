@@ -19,14 +19,15 @@ public class Snake : MonoBehaviour {
     public int pointsToAdd;
 
     //Did user died?
-    bool isDead = false;
+   public bool isDead = false;
 
 	// Tail Prefab
 	public GameObject tailPrefab;
+    public GameObject deadCanvas;
 
-	// Current Movement Direction
-	// (by default it moves to the right)
-	Vector2 dir = Vector2.right;
+    // Current Movement Direction
+    // (by default it moves to the right)
+    Vector2 dir = Vector2.right;
 
 	// Keep Track of Tail
 	List<Transform> tail = new List<Transform>();
@@ -83,9 +84,9 @@ public class Snake : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-       // Check();
+   
 
-		if (!isDead) {
+        if (!isDead) {
 			// Move in a new Direction?
 			if (Input.GetKey (KeyCode.RightArrow))
 				dir = Vector2.right;
@@ -136,13 +137,20 @@ public class Snake : MonoBehaviour {
 			// Get longer in next Move call
 			ate = true;
             ScoreManager.AddPoints(pointsToAdd);
-            
             // Remove the Food
             Destroy(coll.gameObject);
-            tokenSoundEffect.Play();
+            tokenSoundEffect.Play();     // if pause menu selected display canvas and stop time
+           
         } else { 	// Collided with Tail or Border
 			isDead = true;
-		}
+            Debug.Log("Game over");
+            // if pause menu selected display canvas and stop time
+          
+                deadCanvas.SetActive(true);
+                Time.timeScale = 0f;
+            
+           
+        }
 	}
 }
  

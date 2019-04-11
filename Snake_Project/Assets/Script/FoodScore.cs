@@ -22,8 +22,7 @@ public class FoodScore : MonoBehaviour
 
         ScoreManager.AddPoints(pointsToAdd);
         tokenSoundEffect.Play();
-        // remove token object
-        // Destroy(gameObject);
+      
     }
 
 }
