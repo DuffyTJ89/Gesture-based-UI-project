@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
         keywordActions.Add("pause", Pause);
         keywordActions.Add("continue", Continue);
-        keywordActions.Add("exit", ReturnMainMenu);
+        keywordActions.Add("main menu", ReturnMainMenu);
 
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;

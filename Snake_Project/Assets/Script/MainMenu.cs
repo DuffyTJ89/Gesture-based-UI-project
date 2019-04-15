@@ -30,8 +30,7 @@ public class MainMenu : MonoBehaviour
     private void Check()
     {
         keywordActions.Add("new game", NewGame);
-        keywordActions.Add("scores", Scores);
-        keywordActions.Add("exit", ExitGame);
+        keywordActions.Add("quit", ExitGame);
         
 
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
@@ -45,14 +44,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Level1");
       
        
-    }
-
-    // Scores
-    public void Scores()
-    {
-
-        // Load scores
-       // SceneManager.LoadScene(scores);
     }
 
     // exit Game
