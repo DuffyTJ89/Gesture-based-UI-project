@@ -5,7 +5,7 @@ public class ScoreManager : MonoBehaviour
 {
 
 
-    public static int score;
+    public static int currentScore;
     Text scoretext;
    
 
@@ -21,23 +21,24 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (score < 0)
+        if (currentScore < 0)
         {
-            score = 0;
+            currentScore = 0;
         }
 
-        scoretext.text = "" + score;
+        scoretext.text = "" + currentScore;
     }
 
     // static to only allow one instance of score
     public static void AddPoints(int pointsToAdd)
     {
-        score += pointsToAdd;
-        PlayerPrefs.SetInt("CurrentPlayerScore", score);
+        currentScore += pointsToAdd;
+        PlayerPrefs.SetInt("CurrentPlayerScore", currentScore);
+        
     }
     // reset points
     public static void ResetPoints()
     {
-        score = 0;
+        currentScore = 0;
     }
 }

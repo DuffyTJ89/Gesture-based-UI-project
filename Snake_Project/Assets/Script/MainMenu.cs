@@ -15,8 +15,6 @@ public class MainMenu : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-     
-       
         Check();
     }
 
@@ -44,7 +42,7 @@ public class MainMenu : MonoBehaviour
     // New Game
     public void NewGame()
     { // Load first level
-        SceneManager.LoadScene(Level1);
+        SceneManager.LoadScene("Level1");
       
        
     }

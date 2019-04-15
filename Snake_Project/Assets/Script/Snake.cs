@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using UnityEngine.Windows.Speech;
+using UnityEngine.SceneManagement;
 
 public class Snake : MonoBehaviour {
 
@@ -17,9 +18,10 @@ public class Snake : MonoBehaviour {
     bool ate = false;
 
     public int pointsToAdd;
+    public string StartMenu;
 
     //Did user died?
-   public bool isDead = false;
+    public bool isDead = false;
 
 	// Tail Prefab
 	public GameObject tailPrefab;
@@ -31,9 +33,10 @@ public class Snake : MonoBehaviour {
 
 	// Keep Track of Tail
 	List<Transform> tail = new List<Transform>();
+    public string GameOverScene;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		// Move the Snake every 300ms
 		InvokeRepeating("Move", 0.3f, 0.3f);
         Check();
@@ -52,11 +55,14 @@ public class Snake : MonoBehaviour {
         keywordActions.Add("left", turnLeft);
         keywordActions.Add("up", turnUp);
         keywordActions.Add("down", turnDown);
+        keywordActions.Add("main menu", mainMenu);
 
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
         keywordRecognizer.Start();
     }
+
+    
 
     /// <summary>
     /// Moves
@@ -79,6 +85,11 @@ public class Snake : MonoBehaviour {
     private void turnRight()
     {
         if (!isDead) { dir = Vector2.right; }
+    }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(StartMenu);
     }
 
     // Update is called once per frame
@@ -144,12 +155,19 @@ public class Snake : MonoBehaviour {
         } else { 	// Collided with Tail or Border
 			isDead = true;
             Debug.Log("Game over");
+
             // if pause menu selected display canvas and stop time
-          
-                deadCanvas.SetActive(true);
-                Time.timeScale = 0f;
-            
-           
+            //deadCanvas.SetActive(true);
+            SceneManager.LoadScene("GameOverScene");
+
+            Time.timeScale = 0f;
+
+            Check(); //check for the main menu key words to vring the user back to the main menu
+
+
+
+
+
         }
 	}
 }
