@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour {
 
-    public int scoreGameOver;
+    public int scoreText;
 
     // Use this for initialization
     void Start () {
-		
-	}
+
+        scoreText = PlayerPrefs.GetInt("CurrentPlayerScore");
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-       scoreGameOver = ScoreManager.currentScore;
+       
      
-        Debug.Log("Score" + scoreGameOver);
+        Debug.Log("Score :" + scoreText);
 
     }
 }

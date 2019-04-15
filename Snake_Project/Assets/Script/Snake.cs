@@ -11,7 +11,7 @@ public class Snake : MonoBehaviour {
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
     public AudioSource tokenSoundEffect;
-
+    //public ConfidenceLevel confidence = ConfidenceLevel.Low;
 
 
     // Did the snake eat something?
@@ -95,8 +95,8 @@ public class Snake : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-   
-
+        Check();
+        /*
         if (!isDead) {
 			// Move in a new Direction?
 			if (Input.GetKey (KeyCode.RightArrow))
@@ -108,7 +108,7 @@ public class Snake : MonoBehaviour {
 			else if (Input.GetKey (KeyCode.UpArrow))
 				dir = Vector2.up;
 		
-		}
+		}*/
 	}
 
 	void Move() {
