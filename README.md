@@ -48,6 +48,21 @@ Anywhere where we felt there might be slight confusion as to what command to giv
 | "New game" | starts a new game  |
 | "Quit" | quits the application  |
 
+# UI
+
+#### Our main menu 
+
+![alt text](https://raw.githubusercontent.com/DuffyTJ89/Gesture-based-UI-project/master/img/Capture.PNG "Logo Title Text 1")
+
+#### the in game pause menu 
+
+
+![alt text](https://raw.githubusercontent.com/DuffyTJ89/Gesture-based-UI-project/master/img/Capture2.PNG "Logo Title Text 1")
+
+#### Game over screen
+
+![alt text](https://raw.githubusercontent.com/DuffyTJ89/Gesture-based-UI-project/master/img/Capture3.PNG "Logo Title Text 1")
+
 ##### Building the enviroment -
 The boarders are just png images which have had a Rigidbody2D on them. Every time we spawn food it is inside this area.
 ```
