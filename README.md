@@ -158,7 +158,6 @@ We check if the player is dead first because you don't want them to be able to t
 The voice commands for our menus work like the voice commands for the snake but instead we call new scenes.
 ``` 
 keywordActions.Add("new game", NewGame);
-keywordActions.Add("scores", Scores);
 keywordActions.Add("exit", ExitGame);
         
 keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
