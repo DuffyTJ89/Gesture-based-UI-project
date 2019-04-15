@@ -76,7 +76,7 @@ public class PauseMenu : MonoBehaviour
     //go to main menu
     public void ReturnMainMenu()
     {
-        SceneManager.LoadScene(selectMainMenu);
+        SceneManager.LoadScene("StartMenu");
 
     }
 

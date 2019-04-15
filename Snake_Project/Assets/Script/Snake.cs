@@ -96,7 +96,7 @@ public class Snake : MonoBehaviour {
     void Update () {
 
         Check();
-        /*
+        
         if (!isDead) {
 			// Move in a new Direction?
 			if (Input.GetKey (KeyCode.RightArrow))
@@ -108,7 +108,7 @@ public class Snake : MonoBehaviour {
 			else if (Input.GetKey (KeyCode.UpArrow))
 				dir = Vector2.up;
 		
-		}*/
+		}
 	}
 
 	void Move() {
