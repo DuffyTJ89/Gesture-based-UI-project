@@ -4,7 +4,7 @@ The aim of this project was to develop an application with a Natural User Interf
 
 # To run the game
 
-We included an exe file in the folder SnakeBuild called Snake_Project.exe. If you double click on this on a Windows machine the game should run. We recommend using a microphone when running the game because although all the menus very responsive the gameplay itself can be unresponsive when it is unsure of the word. We tried reducing the confidence level but the issue continued. 
+We included an exe file in the folder SnakeBuild called Snake_Project.exe. If you double click on this on a Windows machine the game should run. We recommend using a microphone when running the game, because although all the menus are very responsive, the gameplay itself can be unresponsive when it is unsure of the word. We tried reducing the confidence level but the issue continued. 
 
 alternatively if you have Unity you can open the project there, we built the game using Unity 2018.2.10f1
 
