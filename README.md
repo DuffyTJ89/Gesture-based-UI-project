@@ -154,6 +154,30 @@ These method will change the direction of the snake
     }
 ```
 We check if the player is dead first because you don't want them to be able to turn after they have collided with the wall or the snake tail.
+
+The voice commands for our menus work like the voice commands for the snake but instead we call new scenes.
+``` 
+keywordActions.Add("new game", NewGame);
+keywordActions.Add("scores", Scores);
+keywordActions.Add("exit", ExitGame);
+        
+keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
+keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
+keywordRecognizer.Start();
+``` 
+ You can see the command for newGame above. That calls this method to bring up a new scene.
+```
+ public void NewGame()
+    { // Load first level
+        SceneManager.LoadScene("Level1");
+    }
+```
+# Conclusions & Recommendations
+
+This was an enjoyable project where we got to see some technology that we hadn't seen before like the Myo armbands and using voice control in our applications. If we were doing this project again I think we would go with a game which doesn't rely on reaction input as much as snake because the delay with voice commands makes it a worse expierence than playing with button controles.
+
+Our menu voice commands seem to work the most issue free so we would probably look to build something like Xs and 0s or sudoku which are games where the response time isn't critical.
+
 ### Authors: 
 Kieran O'Halloran,
 Thomas Duffy
