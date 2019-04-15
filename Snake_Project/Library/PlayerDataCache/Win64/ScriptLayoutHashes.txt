@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Thomas/Desktop/SnakeBuild/Snake_Project.exe
+C:/Users/Thomas/Desktop/temp/Snake_Project.exe
 SceneListBegin?
 Assets/_Scene/StartMenu.unity
 Assets/_Scene/Level1.unity
@@ -117,7 +117,7 @@ da21fc3f8056b1f91c3dd09c7bf4f90a UnityEngine.Networking.dll:UnityEngine.Networki
 fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-8618a0b8340065e21d95c454c2915326 Assembly-CSharp.dll:.Snake
+380a84686faeaa4f9e9fd3449ab3decd Assembly-CSharp.dll:.Snake
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
