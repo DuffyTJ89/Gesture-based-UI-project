@@ -25,7 +25,7 @@ public class Snake : MonoBehaviour {
 
 	// Tail Prefab
 	public GameObject tailPrefab;
-    public GameObject deadCanvas;
+    
 
     // Current Movement Direction
     // (by default it moves to the right)
@@ -95,7 +95,7 @@ public class Snake : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        Check();
+    
         
         if (!isDead) {
 			// Move in a new Direction?
@@ -157,17 +157,10 @@ public class Snake : MonoBehaviour {
             Debug.Log("Game over");
 
             // if pause menu selected display canvas and stop time
-            //deadCanvas.SetActive(true);
             SceneManager.LoadScene("GameOverScene");
 
             Time.timeScale = 0f;
-
-            Check(); //check for the main menu key words to vring the user back to the main menu
-
-
-
-
-
+                      
         }
 	}
 }
