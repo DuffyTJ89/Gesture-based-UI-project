@@ -178,6 +178,10 @@ This was an enjoyable project where we got to see some technology that we hadn't
 
 Our menu voice commands seem to work the most issue free so we would probably look to build something like Xs and 0s or sudoku which are games where the response time isn't critical.
 
+# Video
+
+https://www.youtube.com/watch?v=hTCZ0SaI_Gg
+
 ### Authors: 
 Kieran O'Halloran,
 Thomas Duffy
