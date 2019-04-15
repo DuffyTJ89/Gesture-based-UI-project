@@ -1,6 +1,12 @@
 # Voice controlled Snake
 
-The aim of this project was to develop an application with a Natural User Interface. We chose to implement voice commands on the classsic mobile game Snake.
+The aim of this project was to develop an application with a Natural User Interface. We chose to implement Myo armband controles on the classsic mobile game Snake.
+
+# To run the game
+
+We included an exe file in the folder SnakeBuild called Snake_Project.exe. If you double click on this on a Windows machine the game should run. We recommend using a microphone when running the game because although all the menus very responsive the gameplay itself can be unresponsive when it is unsure of the word. We tried reducing the confidence level but the issue continued. 
+
+alternatively if you have Unity you can open the project there, we built the game using Unity 2018.2.10f1
 
 # Technologies used
   - Unity
@@ -8,7 +14,7 @@ The aim of this project was to develop an application with a Natural User Interf
 
 # Why Snake?
 
-With Snake being so well known (everyone above a certain age has played it) we thought this would be a good opportunity to give a different take on the classic game by adding in voice gesture controles.
+With Snake being so well known (everyone above a certain age has played it) we thought this would be a good opportunity to give a different take on the classic game by adding in physical gesture controles.
 
 # Research
 
@@ -17,6 +23,30 @@ Initially we were looking at using the Myo Armband which was available to us thr
 # Creating the game
 
 We build the game of snake to work off keyboard controles first and then added the voice commands after. 
+
+We try to use what we think are the most natural commands in each situation in the game so for example to get the snake to turn upwards we use the command "up". 
+
+Anywhere where we felt there might be slight confusion as to what command to give we print text onto the screen to guide the user. Below is a list of all the voice commands in the game and their purpose.
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Main Menu
+| Command | Action |
+| ------ | ------ |
+| "New game" | starts a new game  |
+| "Quit" | quits the application  |
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  In Game
+| Command | Action |
+| ------ | ------ |
+| "Up" | changes the direction the snake is moving in to an upwards direction  |
+| "Down" | changes the direction the snake is moving in to a downwards direction |
+| "Left" | changes the direction the snake is moving in to left moving |
+| "Right" | changes the direction the snake is moving in to right moving |
+| "Pause" | this will trigger the pause menu, saying it again will untrigger it |
+| "continue" | in the pause menu this will continue the game |
+| "Main menu" | in the pause menu this bring you back to the first menu |
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Game Over
+| Command | Action |
+| ------ | ------ |
+| "New game" | starts a new game  |
+| "Quit" | quits the application  |
 
 ##### Building the enviroment -
 The boarders are just png images which have had a Rigidbody2D on them. Every time we spawn food it is inside this area.
@@ -54,7 +84,7 @@ The snake itself is just a white square, the food is a blue square. When the sna
 			}
 ```
 
-##### When we add to the snake we also need to delete the food
+When we add to the snake we also need to delete the food
 ```
 if (coll.name.StartsWith("Food")) {
 			// Get longer in next Move call
@@ -66,7 +96,7 @@ if (coll.name.StartsWith("Food")) {
 			isDead = true;
 		}
 ```
-##### ScoreManager is used to keep track of the player's points in game.
+ScoreManager is used to keep track of the player's points in game.
 
 To add voice commands we used unity's built in voice recognition.
 To add it to the project we go to file -> build settings -> PC, Mac & Linux -> player settings -> windows -> capabilities and tick the microphone checkbox.
@@ -74,19 +104,19 @@ Then in our code
 ```
 using UnityEngine.Windows.Speech;
 ```
-##### We set  up the keywordActions variable so we can call a method later when the system hear a certain word.
+We set  up the keywordActions variable so we can call a method later when the system hear a certain word.
 ```
 private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
 private KeywordRecognizer keywordRecognizer;
 ``` 
-##### We then map the keywords to call a method when it recognizes a word
+We then map the keywords to call a method when it recognizes a word
 ``` 
 keywordActions.Add("right", turnRight);
 keywordActions.Add("left", turnLeft);
 keywordActions.Add("up", turnUp);
 keywordActions.Add("down", turnDown);
 ``` 
-##### These method will change the direction of the snake 
+These method will change the direction of the snake 
 ```
  private void turnDown()
     {
@@ -108,8 +138,7 @@ keywordActions.Add("down", turnDown);
         if (!isDead) { dir = Vector2.right; }
     }
 ```
-##### We check if the player is dead first because you don't want them to be able to turn after they have collided with the wall or the snake tail.
-
+We check if the player is dead first because you don't want them to be able to turn after they have collided with the wall or the snake tail.
 ### Authors: 
 Kieran O'Halloran,
 Thomas Duffy
